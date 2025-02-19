@@ -1,15 +1,4 @@
-{
-  "version": 2,
-  "builds": [
-    {
-      "src": "wsgi.py",
-      "use": "@vercel/python"
-    }
-  ],
-  "routes": [
-    {
-      "src": "/(.*)",
-      "dest": "wsgi.py"
-    }
-  ]
-}
+from app import app
+
+if __name__ == "__main__":
+    app.run()
