@@ -56,7 +56,7 @@ Contributions are welcome! If you'd like to contribute, please follow these step
 5. Open a Pull Request.
 
 ## License
-This project is licensed under the MIT License.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Contact Me
 If you have any questions or would like to collaborate, feel free to reach out:
