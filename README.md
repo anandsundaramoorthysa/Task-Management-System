@@ -83,6 +83,10 @@ Then open `htmlcov/index.html` in your browser to view the visual coverage repor
 
 ---
 
+### Test Report
+
+![Test Coverage Report](Test_Report.png)
+
 ## Contribution
 
 Contributions are welcome! If you'd like to contribute, please follow these steps:
