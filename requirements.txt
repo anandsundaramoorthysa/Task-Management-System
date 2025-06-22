@@ -5,3 +5,4 @@ flask-sqlalchemy==3.1.1
 flask-wtf==1.1.1
 wtforms==3.1.1
 email-validator==2.1.0.post1
+coverage==7.6.10

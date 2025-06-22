@@ -5,6 +5,7 @@
 - [Installation](#installation)
 - [Run the Project](#run-the-project)
 - [Features](#features)
+- [Testing](#testing)
 - [Contribution](#contribution)
 - [License](#license)
 - [Contact Me](#contact-me)
@@ -46,6 +47,23 @@ Then open your browser and go to `http://127.0.0.1:5000/` to access the Task Man
 - Intuitive user interface for task management
 - Responsive design for mobile and desktop usage
 - Secure database storage for task records
+
+## Testing
+
+![Pytest](https://img.shields.io/badge/Tested%20With-Pytest-blue?logo=pytest)
+![Coverage](https://img.shields.io/badge/Test%20Coverage-70%25%2B-brightgreen)
+
+This project includes **unit tests**, **integration tests**, and **API tests** to ensure reliability, correctness, and performance of all features. All test cases are organized in test_app.py.
+
+### How to Run Tests
+
+Activate your environment and run the following command for testing:
+```bash
+coverage run test_app.py                  
+coverage report    
+coverage html #To generate a visual HTML report
+```
+Then open htmlcov/index.html to check it out the test coverage report.
 
 ## Contribution
 Contributions are welcome! If you'd like to contribute, please follow these steps:
