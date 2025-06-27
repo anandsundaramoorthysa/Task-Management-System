@@ -20,21 +20,19 @@ jobs:
     - name: Build Docker Image
       run: docker build -t task-manager-app .
 
-    - name: Create Docker Network
-      run: docker network create keploy-network
-
-    - name: Run Application Container
-      run: docker run -d --name task-app --network keploy-network task-manager-app
-
     - name: Run Keploy Test
       run: |
+        docker network create keploy-network
+
+        docker run -d --name task-app --network keploy-network task-manager-app
+
         docker run --rm --network keploy-network \
           -v ${{ github.workspace }}:/app \
           -w /app \
           ghcr.io/keploy/keploy:v2.6.12 \
           test \
-          --cmd-type docker \
-          -c "docker run -p 5000:5000 --name task-app --network keploy-network task-manager-app"\
+          --cmd-type native \
+          -c "python app.py" \
           --container-name task-app \
           --network-name keploy-network \
           --build-delay 30 \
