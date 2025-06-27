@@ -39,7 +39,7 @@ jobs:
           --network keploy-network \
           task-manager-app
 
-        - name: Run Keploy Tests
+    - name: Run Keploy Tests
       run: |
         docker run --rm \
           --network keploy-network \
