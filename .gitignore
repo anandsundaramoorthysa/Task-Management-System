@@ -1,8 +1,58 @@
-.venv/
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
-database.db
+*.so
+
+# Virtual environments
+.venv/
+env/
+venv/
+ENV/
+
+# Distribution / packaging
+build/
+develop-eggs/
+dist/
+eggs/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+*.manifest
+*.spec
+
+# Unit test / coverage reports
 .coverage
+.cache
+nosetests.xml
+coverage.xml
+*.cover
 htmlcov/
+.tox/
+.pytest_cache/
+
+# Environment variables and secrets
+.env
+.env.*
+
+# SQLite/Database files
+*.db
+*.sqlite3
+database.db
+
+# VS Code and other IDEs
 .vscode/
 *.code-workspace
+.idea/
+
+# Docker
+*.log
+keploy-logs.txt
+
+test-*.yaml
+
+# OS files
+.DS_Store
+Thumbs.db

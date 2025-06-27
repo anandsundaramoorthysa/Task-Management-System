@@ -1,0 +1,137 @@
+openapi: 3.0.0
+info:
+  title: Task Management API
+  version: 1.0.0
+  description: API for managing user authentication and tasks.
+
+servers:
+  - url: http://localhost:5000
+
+paths:
+  /register:
+    post:
+      summary: Register a new user
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+              required:
+                - username
+                - password
+      responses:
+        '302':
+          description: Redirect to login if success or show error
+
+  /login:
+    post:
+      summary: Login a user
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                username:
+                  type: string
+                password:
+                  type: string
+              required:
+                - username
+                - password
+      responses:
+        '302':
+          description: Redirects to dashboard if successful or shows error
+
+  /dashboard:
+    get:
+      summary: Get all tasks for logged-in user
+      responses:
+        '200':
+          description: A list of tasks for the user
+
+  /add_task:
+    post:
+      summary: Add a new task
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                status:
+                  type: string
+              required:
+                - title
+      responses:
+        '302':
+          description: Redirect to dashboard
+
+  /edit_task/{task_id}:
+    get:
+      summary: Get details of a specific task for editing
+      parameters:
+        - name: task_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Task edit form
+
+    post:
+      summary: Update a task
+      parameters:
+        - name: task_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                status:
+                  type: string
+              required:
+                - title
+                - status
+      responses:
+        '302':
+          description: Redirect to dashboard
+
+  /delete_task/{task_id}:
+    post:
+      summary: Delete a task
+      parameters:
+        - name: task_id
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        '302':
+          description: Task deleted and redirect to dashboard
+
+  /logout:
+    get:
+      summary: Log the user out
+      responses:
+        '302':
+          description: Redirect to login
