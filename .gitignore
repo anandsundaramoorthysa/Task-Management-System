@@ -9,7 +9,6 @@ env/
 venv/
 ENV/
 
-# Distribution / packaging
 build/
 develop-eggs/
 dist/
