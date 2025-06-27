@@ -34,7 +34,7 @@ jobs:
           ghcr.io/keploy/keploy:v2.6.12 \
           test \
           --cmd-type docker \
-          -c "task-manager-app" \
+          -c "docker run -p 5000:5000 --name task-app --network keploy-network task-manager-app"\
           --container-name task-app \
           --network-name keploy-network \
           --build-delay 30 \
