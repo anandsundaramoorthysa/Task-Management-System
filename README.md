@@ -55,6 +55,7 @@ Then open your browser and go to `http://127.0.0.1:5000/` to access the Task Man
 
 ![Pytest](https://img.shields.io/badge/Tested%20With-Pytest-blue?logo=pytest)
 ![Coverage](https://img.shields.io/badge/Test%20Coverage-70%25%2B-brightgreen)
+![Keploy API Test](https://github.com/anandsundaramoorthysa/Task-Management-System/actions/workflows/keploy.yml/badge.svg)
 
 This project includes:
 
@@ -86,6 +87,18 @@ Then open `htmlcov/index.html` in your browser to view the visual coverage repor
 ### Test Report
 
 ![Test Coverage Report](Test_Report.png)
+
+---
+
+## Keploy API Test Reports
+
+Here are the test reports generated using Keploy AI API Testing:
+
+![Keploy Test Report](Keploy_Test_Report1.png)
+![Keploy Test Report](Keploy_Test_Report2.png)
+![Keploy Test Report](Keploy_Test_Report3.png)
+![Keploy Test Report](Keploy_Test_Report4.png)
+
 
 ## Contribution
 

@@ -62,3 +62,4 @@ jobs:
           keploy/testReports/
           keploy-logs.txt
           Keploy_Test_Report*.png
+          
