@@ -82,13 +82,9 @@ coverage html
 
 Then open `htmlcov/index.html` in your browser to view the visual coverage report.
 
----
-
 ### Test Report
 
 ![Test Coverage Report](Test_Report.png)
-
----
 
 ## Keploy API Test Reports
 
