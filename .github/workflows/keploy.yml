@@ -26,14 +26,15 @@ jobs:
     - name: Run App Container
       run: docker run -d --name task-app --network keploy-network task-manager-app
 
-    - name: Run Keploy Test
+       - name: Run Keploy Test
       run: |
         docker run --rm --network keploy-network \
           -v ${{ github.workspace }}:/app \
           -w /app \
           ghcr.io/keploy/keploy:v2.6.12 \
           test \
-          -c "docker run -p 5000:5000 --name task-app --network keploy-network task-manager-app" \
+          --cmd-type docker \
+          -c "task-manager-app" \
           --container-name task-app \
           --network-name keploy-network \
           --build-delay 30 \
