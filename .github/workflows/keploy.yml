@@ -1,4 +1,4 @@
-name: Keploy API Testing
+name: Keploy API Test
 
 on:
   push:
@@ -11,20 +11,25 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v3
 
-      - name: Set up Docker
-        uses: docker/setup-buildx-action@v3
+    - name: Set up Docker Buildx
+      uses: docker/setup-buildx-action@v2
 
-      - name: Build Docker image
-        run: docker build -t task-manager-app .
+    - name: Build Docker Image
+      run: docker build -t task-manager-app .
 
-      - name: Run Keploy in Record mode
-        run: |
-          docker network create keploy-network
-          keploy record -c "docker run -p 5000:5000 --name task-app --network keploy-network task-manager-app" --container-name task-app --network-name keploy-network --record-timer 30s
-
-      - name: Run Keploy in Test mode
-        run: |
-          keploy test -c "docker run -p 5000:5000 --name task-app --network keploy-network task-manager-app" --container-name task-app --network-name keploy-network --delay 10 --build-delay 30
+    - name: Run Keploy Tests
+      run: |
+        docker network create keploy-network
+        docker run -d --name task-app --network keploy-network -p 5000:5000 task-manager-app
+        docker run --rm --network keploy-network \
+          -v ${{ github.workspace }}:/app \
+          -w /app \
+          ghcr.io/keploy/keploy:v2.6.12 \
+          test -c "python3 app.py" \
+          --container-name task-app \
+          --network-name keploy-network \
+          --build-delay 30 \
+          --delay 10
